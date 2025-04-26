@@ -5,23 +5,23 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 
 ## Table of Contents
 
-- Features
-- Permissions
-- Requirements
-- Installation
-- Dependencies for Features
-- Setup
-- Usage
-  - Initialization
-  - Starting and Stopping Tracking
-  - Logging Events
-  - Managing SDK Settings
-  - Retrieving Analytics Data
-  - Setting FCM Token
-  - Cleaning Up
-- Example
-- Troubleshooting
-- License
+- [Features](#features)
+- [Permissions](#permissions)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Dependencies for Features](#dependencies-for-features)
+- [Setup](#setup)
+- [Usage](#usage)
+  - [Initialization](#initialization)
+  - [Starting and Stopping Tracking](#starting-and-stopping-tracking)
+  - [Logging Events](#logging-events)
+  - [Managing SDK Settings](#managing-sdk-settings)
+  - [Retrieving Analytics Data](#retrieving-analytics-data)
+  - [Setting FCM Token](#setting-fcm-token)
+  - [Cleaning Up](#cleaning-up)
+- [Example](#example)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
 
 ## Features
 

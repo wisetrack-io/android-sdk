@@ -1,48 +1,48 @@
-# کتابخانه WiseTrack برای اندروید
+# مستندات SDK WiseTrack برای اندروید
 
-کتابخانه WiseTrack یک ابزار قدرتمند برای تحلیل و ردیابی تعاملات کاربران، رویدادها و معیارهای برنامه در برنامه‌های اندرویدی است. این کتابخانه رابط کاربری ساده‌ای برای راه‌اندازی ردیابی، ثبت رویدادها، مدیریت تنظیمات SDK و دریافت داده‌های تحلیلی مانند شناسه تبلیغاتی (ADID) و اطلاعات ارجاع (Referrer) ارائه می‌دهد.
+SDK WiseTrack یک ابزار تحلیل قدرتمند برای ردیابی تعاملات کاربران، رویدادها و معیارهای برنامه در اپلیکیشن‌های اندرویدی است. این ابزار رابط کاربری ساده‌ای برای راه‌اندازی ردیابی، ثبت رویدادها، مدیریت تنظیمات SDK و دریافت داده‌های تحلیلی مانند شناسه تبلیغاتی (ADID) و اطلاعات ارجاع (Referrer) ارائه می‌دهد.
 
 ## فهرست مطالب
 
-- ویژگی‌ها
-- مجوزها
-- پیش‌نیازها
-- نصب
-- وابستگی‌ها برای ویژگی‌ها
-- راه‌اندازی
-- استفاده
-  - مقداردهی اولیه
-  - شروع و توقف ردیابی
-  - ثبت رویدادها
-  - مدیریت تنظیمات SDK
-  - دریافت داده‌های تحلیلی
-  - تنظیم توکن FCM
-  - پاک‌سازی
-- مثال
-- عیب‌یابی
-- مجوز
+- [ویژگی‌ها](#ویژگیها)
+- [مجوزها](#مجوزها)
+- [پیش‌نیازها](#پیش‌نیازها)
+- [نصب](#نصب)
+- [وابستگی‌ها برای ویژگی‌ها](#وابستگی‌ها-برای-ویژگی‌ها)
+- [راه‌اندازی](#راه‌اندازی)
+- [استفاده](#استفاده)
+  - [راه‌اندازی اولیه](#راه‌اندازی-اولیه)
+  - [شروع و توقف ردیابی](#شروع-و-توقف-ردیابی)
+  - [ثبت رویدادها](#ثبت-رویدادها)
+  - [مدیریت تنظیمات SDK](#مدیریت-تنظیمات-SDK)
+  - [دریافت داده‌های تحلیلی](#دریافت-داده‌های-تحلیلی)
+  - [تنظیم توکن FCM](#تنظیم-توکن-FCM)
+  - [پاک‌سازی](#پاک‌سازی)
+- [مثال](#مثال)
+- [عیب‌یابی](#عیب‌یابی)
+- [لایسنس](#لایسنس)
 
 ## ویژگی‌ها
 
-- ردیابی تعاملات کاربران و رویدادهای سفارشی (مانند اقدامات کاربر یا رویدادهای درآمدی).
-- پشتیبانی از فروشگاه‌های مختلف برنامه (مانند گوگل پلی، کافه‌بازار، مایکت).
-- تنظیمات محیط‌های قابل پیکربندی (Sandbox، Production) و تنظیمات SDK.
+- ردیابی تعاملات کاربران و رویدادهای سفارشی (مانند اقدامات کاربر، رویدادهای درآمدی).
+- پشتیبانی از فروشگاه‌های مختلف (مانند گوگل پلی، کافه‌بازار، مایکت).
+- محیط‌های قابل تنظیم (Sandbox، Production) و تنظیمات SDK.
 - دریافت شناسه تبلیغاتی (ADID) و اطلاعات ارجاع.
-- یکپارچگی با Firebase Installation برای دریافت شناسه نصب Firebase.
-- پشتیبانی از شناسه تبلیغاتی باز (OAID) و شناسه تبلیغاتی هواوی.
+- ادغام با Firebase Installation برای دریافت شناسه نصب فایربیس.
+- پشتیبانی از شناسه تبلیغاتی باز (OAID) و شناسه تبلیغات هواوی.
 - ردیابی ارجاع برای گوگل پلی و کافه‌بازار.
-- ثبت گزارش‌های قوی با سطوح قابل تنظیم.
+- ثبت لاگ‌های قوی با سطوح لاگ قابل تنظیم.
 - ردیابی خودکار با تأخیرهای قابل تنظیم.
 
 ## پیش‌نیازها
 
 - **سطح API اندروید**: 21 (لالی‌پاپ) یا بالاتر
 - **کاتلین**: نسخه 1.9.0 یا بالاتر
-- **وابستگی‌ها**: برای وابستگی‌های مورد نیاز و اختیاری به بخش [وابستگی‌ها برای ویژگی‌ها](#وابستگی‌ها-برای-ویژگی‌ها) مراجعه کنید.
+- **وابستگی‌ها**: بخش [وابستگی‌ها برای ویژگی‌ها](#وابستگی‌ها-برای-ویژگی‌ها) را برای وابستگی‌های موردنیاز و اختیاری بررسی کنید.
 
 ## مجوزها
 
-برای دسترسی کتابخانه WiseTrack به اطلاعات دستگاه، باید مجوزهای مورد نیاز برنامه خود را مشخص کنید. برای این کار، مجوزها را به فایل `AndroidManifest.xml` اضافه کنید:
+برای دسترسی SDK WiseTrack به اطلاعات دستگاه، باید مجوزهای موردنیاز اپلیکیشن خود را مشخص کنید. این مجوزها را در فایل `AndroidManifest.xml` اضافه کنید:
 
 - برای دسترسی به قابلیت‌های آنلاین، مجوزهای زیر را اضافه کنید:
 
@@ -51,7 +51,7 @@
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   ```
 
-- اگر برنامه شما فروشگاه گوگل پلی را هدف قرار نمی‌دهد، برای دسترسی به وضعیت شبکه دستگاه، مجوزهای زیر را اضافه کنید:
+- اگر اپلیکیشن شما فروشگاه گوگل پلی را هدف قرار نمی‌دهد، برای دسترسی به وضعیت شبکه دستگاه، مجوزهای زیر را اضافه کنید:
 
   ```xml
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -60,69 +60,65 @@
 
 ## نصب
 
-1. **اضافه کردن کتابخانه WiseTrack به پروژه**:
+1. **اضافه کردن SDK WiseTrack به پروژه**:
 
    - وابستگی را به فایل `app/build.gradle` اضافه کنید:
 
      ```gradle
-     implementation 'io.wisetrack:wisetrack-core:1.0.0' // نسخه را با آخرین نسخه جایگزین کنید
+     implementation 'io.wisetrack:sdk:core:2.0.0' // با آخرین نسخه جایگزین کنید
      ```
 
    - پروژه خود را با Gradle همگام‌سازی کنید.
 
-2. **اضافه کردن وابستگی‌های خاص ویژگی‌ها**: بسته به ویژگی‌هایی که می‌خواهید فعال کنید (مانند OAID، ردیابی ارجاع)، وابستگی‌های مربوطه را طبق توضیحات بخش [وابستگی‌ها برای ویژگی‌ها](#وابستگی‌ها-برای-ویژگی‌ها) اضافه کنید.
+2. **اضافه کردن وابستگی‌های خاص ویژگی‌ها**: بسته به ویژگی‌هایی که می‌خواهید فعال کنید (مانند OAID، ردیابی ارجاع)، وابستگی‌های مربوطه را طبق بخش [وابستگی‌ها برای ویژگی‌ها](#وابستگی‌ها-برای-ویژگی‌ها) اضافه کنید.
 
 ## وابستگی‌ها برای ویژگی‌ها
 
-کتابخانه WiseTrack به‌صورت خودکار از برخی ویژگی‌ها استفاده می‌کند، اگر وابستگی‌های مربوطه در پروژه شما گنجانده شده باشند. در زیر فهرستی از ویژگی‌ها و وابستگی‌های مورد نیاز آورده شده است:
+SDK WiseTrack به‌طور خودکار از ویژگی‌های خاصی استفاده می‌کند، اگر وابستگی‌های مربوطه در پروژه شما موجود باشند. در ادامه فهرستی از ویژگی‌ها و وابستگی‌های موردنیاز آورده شده است:
 
-- **شناسه تبلیغاتی باز (OAID)**: پشتیبانی از `oaidEnabled` در `WTInitialConfig` را فعال می‌کند تا از OAID به‌عنوان جایگزین ADID برای گوشی‌های چینی بدون سرویس‌های گوگل پلی استفاده شود.
-
+- **شناسه تبلیغاتی باز (OAID)**: فعال‌سازی `oaidEnabled` در `WTInitialConfig` برای استفاده از OAID به‌عنوان جایگزین ADID در گوشی‌های چینی بدون سرویس گوگل پلی.
   ```gradle
-  implementation(project(":wisetrack-oaid")) // ماژول یا فایل AAR wisetrack-oaid را اضافه کنید
+  implementation 'io.wisetrack:sdk:oaid:2.0.0' // با آخرین نسخه جایگزین کنید
   ```
 
-- **ردیابی ارجاع**: `referrerEnabled` در `WTInitialConfig` و `getReferrer()` را برای ردیابی منابع نصب فعال می‌کند.
-
+- **ردیابی ارجاع**: فعال‌سازی `referrerEnabled` در `WTInitialConfig` و `getReferrer()` برای ردیابی منابع نصب.
+  - برای بررسی آخرین نسخه ارجاع گوگل پلی، [اینجا](https://developer.android.com/google/play/installreferrer/library#dependenciess) را ببینید.
+  - برای بررسی آخرین نسخه ارجاع کافه‌بازار، [اینجا](https://github.com/cafebazaar/ReferrerSDK/releases) را ببینید.
   ```gradle
-  implementation(project(":wisetrack-referrer")) // ماژول یا فایل AAR wisetrack-referrer را اضافه کنید
+  implementation 'io.wisetrack:sdk:referrer:2.0.0' // با آخرین نسخه جایگزین کنید
   implementation 'com.android.installreferrer:installreferrer:2.2' // برای ارجاع گوگل پلی
   implementation 'com.github.cafebazaar:referrersdk:1.0.2' // برای ارجاع کافه‌بازار
   ```
 
-- **شناسه تبلیغاتی گوگل (ADID)**: `getADID()` را برای بازیابی شناسه تبلیغاتی گوگل فعال می‌کند.
-
+- **شناسه تبلیغاتی گوگل (ADID)**: فعال‌سازی `getADID()` برای دریافت شناسه تبلیغاتی گوگل.
   ```gradle
   implementation 'com.google.android.gms:play-services-ads-identifier:18.2.0'
   ```
 
-- **شناسه تبلیغاتی هواوی**: بازیابی ADID را در دستگاه‌های هواوی فعال می‌کند.
-
+- **شناسه تبلیغات هواوی**: فعال‌سازی دریافت ADID در دستگاه‌های هواوی.
   ```gradle
   implementation 'com.huawei.hms:ads-identifier:3.4.62.300'
   ```
 
-- **شناسه نصب Firebase (FID)**: شناسه نصب Firebase را برای شناسایی منحصربه‌فرد دستگاه کاربر فعال می‌کند.
-
+- **شناسه نصب فایربیس (FID)**: فعال‌سازی شناسه نصب فایربیس برای شناسایی یکتا دستگاه کاربر.
   ```gradle
   implementation 'com.google.firebase:firebase-installations:17.2.0'
   ```
 
-- **شناسه AppSet**: شناسایی اضافی دستگاه را برای تحلیل‌ها فراهم می‌کند.
-
+- **شناسه AppSet**: ارائه شناسایی اضافی دستگاه برای تحلیل.
   ```gradle
   implementation 'com.google.android.gms:play-services-appset:16.1.0'
   ```
 
-**توجه**: فقط وابستگی‌های مربوط به ویژگی‌های مورد نیاز خود را اضافه کنید. به‌عنوان مثال، اگر از دستگاه‌های هواوی استفاده نمی‌کنید، می‌توانید `huawei-hms-ads-identifier` را نادیده بگیرید. برای پیکربندی این ویژگی‌ها در `WTInitialConfig` به بخش [راه‌اندازی](#راه‌اندازی) مراجعه کنید.
+**توجه**: فقط وابستگی‌های مربوط به ویژگی‌های موردنیاز خود را اضافه کنید. به‌عنوان مثال، اگر از دستگاه‌های هواوی استفاده نمی‌کنید، می‌توانید `huawei-hms-ads-identifier` را نادیده بگیرید. برای تنظیم این ویژگی‌ها در `WTInitialConfig`، بخش [راه‌اندازی](#راه‌اندازی) را بررسی کنید.
 
 ## راه‌اندازی
 
-قبل از استفاده از کتابخانه WiseTrack، باید آن را با یک شیء پیکربندی (`WTInitialConfig`) مقداردهی کنید. این کار معمولاً در کلاس `Application` یا متد `onCreate` فعالیت اصلی انجام می‌شود.
+قبل از استفاده از SDK WiseTrack، باید آن را با یک شیء پیکربندی (`WTInitialConfig`) راه‌اندازی کنید. این کار معمولاً در کلاس `Application` یا `Activity` اصلی انجام می‌شود.
 
 ### ایجاد WTInitialConfig
 
-شیء `WTInitialConfig` رفتار SDK را تعریف می‌کند، شامل توکن برنامه، نام فروشگاه، محیط و تنظیمات ردیابی.
+شیء `WTInitialConfig` رفتار SDK را تعریف می‌کند، از جمله توکن اپلیکیشن، نام فروشگاه، محیط و تنظیمات ردیابی.
 
 ```kotlin
 import io.wisetrack.wisetrack_core.core.WTInitialConfig
@@ -137,14 +133,14 @@ val config = WTInitialConfig(
     trackingWaitingTime = 5, // تأخیر به ثانیه قبل از شروع ردیابی
     startTrackerAutomatically = true, // شروع خودکار ردیابی
     oaidEnabled = true, // فعال‌سازی شناسه تبلیغاتی باز (نیازمند wisetrack-oaid)
-    logLevel = WTLogLevel.DEBUG, // تنظیم سطح گزارش (DEBUG، INFO و غیره)
+    logLevel = WTLogLevel.DEBUG, // تنظیم سطح لاگ (DEBUG، INFO و غیره)
     referrerEnabled = true // فعال‌سازی ردیابی ارجاع (نیازمند wisetrack-referrer)
 )
 ```
 
-### مقداردهی اولیه SDK
+### راه‌اندازی SDK
 
-SDK را در کلاس `Application` یا متد `onCreate` فعالیت اصلی مقداردهی کنید:
+SDK را در کلاس `Application` یا در متد `onCreate` از `Activity` اصلی راه‌اندازی کنید:
 
 ```kotlin
 import io.wisetrack.wisetrack_core.WiseTrack
@@ -169,29 +165,29 @@ class MyApplication : Application() {
 
 ## استفاده
 
-کلاس `WiseTrack` چندین متد عمومی برای تعامل با SDK ارائه می‌دهد. در ادامه راهنمای مفصلی برای هر متد ارائه شده است.
+کلاس `WiseTrack` چندین متد عمومی برای تعامل با SDK ارائه می‌دهد. در ادامه راهنمای مفصلی برای هر متد آورده شده است.
 
-### مقداردهی اولیه
+### راه‌اندازی اولیه
 
-- `initialize(initialConfig: WTInitialConfig)`: SDK را با پیکربندی ارائه‌شده مقداردهی می‌کند.
+- `initialize(initialConfig: WTInitialConfig)`: SDK را با پیکربندی ارائه‌شده راه‌اندازی می‌کند.
 
   ```kotlin
   wiseTrack.initialize(config)
   ```
 
-  - این متد را یک‌بار در زمان راه‌اندازی برنامه فراخوانی کنید.
+  - این متد را یک‌بار در زمان راه‌اندازی اپلیکیشن فراخوانی کنید.
   - اطمینان حاصل کنید که `initialConfig` شامل یک `appToken` معتبر است.
 
 ### شروع و توقف ردیابی
 
-- `startTracking()`: ردیابی فعالیت‌ها و رویدادهای کاربر را شروع می‌کند.
+- `startTracking()`: ردیابی فعالیت‌ها و رویدادهای کاربر را آغاز می‌کند.
 
   ```kotlin
   wiseTrack.startTracking()
   ```
 
-  - اگر `startTrackerAutomatically` در `WTInitialConfig` نادرست باشد، این متد را فراخوانی کنید.
-  - SDK تا 3 بار در صورت عدم مقداردهی، با تأخیر 3 ثانیه‌ای بین تلاش‌ها، دوباره تلاش می‌کند.
+  - اگر `startTrackerAutomatically` در `WTInitialConfig` false باشد، این متد را فراخوانی کنید.
+  - SDK در صورت عدم راه‌اندازی، تا 3 بار با تأخیر 3 ثانیه‌ای تلاش مجدد می‌کند.
 
 - `stopTracking()`: تمام عملیات ردیابی را متوقف می‌کند.
 
@@ -199,7 +195,7 @@ class MyApplication : Application() {
   wiseTrack.stopTracking()
   ```
 
-  - از این متد برای توقف ردیابی استفاده کنید، مثلاً وقتی کاربر از تحلیل‌ها انصراف می‌دهد.
+  - از این متد برای توقف ردیابی استفاده کنید، مثلاً زمانی که کاربر از تحلیل داده‌ها انصراف می‌دهد.
 
 ### ثبت رویدادها
 
@@ -235,3 +231,124 @@ class MyApplication : Application() {
 - `setEnabled(enabled: Boolean)`: SDK را فعال یا غیرفعال می‌کند.
 
   ```kotlin
+  wiseTrack.setEnabled(true) // فعال‌سازی SDK
+  wiseTrack.setEnabled(false) // غیرفعال‌سازی SDK
+  ```
+
+  - اگر SDK در پیکربندی فعال نباشد یا نیاز به به‌روزرسانی اجباری داشته باشد، این متد نادیده گرفته می‌شود.
+
+- `setLogLevel(level: WTLogLevel)`: سطح لاگ را برای لاگ‌های SDK تنظیم می‌کند.
+
+  ```kotlin
+  wiseTrack.setLogLevel(WTLogLevel.INFO)
+  ```
+
+  - گزینه‌ها: `DEBUG`، `INFO`، `WARNING`، `ERROR`، `NONE`.
+  - در زمان توسعه از `DEBUG` و در محیط تولید از `INFO` یا بالاتر استفاده کنید.
+
+- `clearDataAndStop()`: تمام داده‌های ذخیره‌شده را پاک کرده و ردیابی را متوقف می‌کند (برای آزمایش یا بازنشانی).
+
+  ```kotlin
+  wiseTrack.clearDataAndStop()
+  ```
+
+  - این متد را با احتیاط استفاده کنید، زیرا تمام داده‌های تحلیلی را حذف می‌کند.
+
+### دریافت داده‌های تحلیلی
+
+- `getADID(): String?`: شناسه تبلیغاتی (ADID) را در صورت موجود بودن دریافت می‌کند.
+
+  ```kotlin
+  val adid = wiseTrack.getADID()
+  println("شناسه تبلیغاتی: $adid")
+  ```
+
+  - اگر ADID در دسترس نباشد، `null` برمی‌گرداند (نیازمند `play-services-ads-identifier` یا `huawei-hms-ads-identifier`).
+
+- `getReferrer(): String?`: اطلاعات ارجاع را در صورت موجود بودن دریافت می‌کند.
+
+  ```kotlin
+  val referrer = wiseTrack.getReferrer()
+  println("ارجاع: $referrer")
+  ```
+
+  - اگر ردیابی ارجاع غیرفعال یا در دسترس نباشد، `null` برمی‌گرداند (نیازمند `wisetrack-referrer`، `android-installreferrer` یا `cafebazaar-referrersdk`).
+
+### تنظیم توکن FCM
+
+- `setFCMToken(token: String)`: توکن Firebase Cloud Messaging (FCM) را برای اعلان‌های پوش تنظیم می‌کند.
+
+  ```kotlin
+  wiseTrack.setFCMToken("YOUR_FCM_TOKEN")
+  ```
+
+  - این متد را زمانی که توکن FCM دریافت یا به‌روزرسانی می‌شود، فراخوانی کنید.
+
+### پاک‌سازی
+
+- `destroy()`: منابع را پاک‌سازی کرده و ردیابی را متوقف می‌کند.
+
+  ```kotlin
+  wiseTrack.destroy()
+  ```
+
+  - این متد را زمانی که اپلیکیشن بسته می‌شود یا دیگر نیازی به SDK نیست، فراخوانی کنید.
+
+## مثال
+
+در زیر یک مثال کامل از نحوه استفاده از SDK WiseTrack در یک اپلیکیشن اندرویدی آورده شده است:
+
+```kotlin
+import android.app.Application
+import io.wisetrack.wisetrack_core.WiseTrack
+import io.wisetrack.wisetrack_core.core.WTInitialConfig
+import io.wisetrack.wisetrack_core.core.WTStoreName
+import io.wisetrack.wisetrack_core.core.WTUserEnvironment
+import io.wisetrack.wisetrack_core.core.WTEvent
+import io.wisetrack.wisetrack_core.core.EventParam
+import io.wisetrack.wisetrack_core.utils.WTLogLevel
+
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
+        // راه‌اندازی WiseTrack
+        val config = WTInitialConfig(
+            appToken = "YOUR_APP_TOKEN",
+            storeName = WTStoreName.PlayStore,
+            environment = WTUserEnvironment.PRODUCTION,
+            trackingWaitingTime = 5,
+            startTrackerAutomatically = true,
+            oaidEnabled = true,
+            logLevel = WTLogLevel.DEBUG,
+            referrerEnabled = true
+        )
+        val wiseTrack = WiseTrack.getInstance(this)
+        wiseTrack.initialize(config)
+
+        // ثبت یک رویداد سفارشی
+        val event = WTEvent.defaultEvent(
+            name = "app_started",
+            params = mapOf("version" to EventParam("1.0.0"))
+        )
+        wiseTrack.logEvent(event)
+
+        // تنظیم توکن FCM
+        wiseTrack.setFCMToken("YOUR_FCM_TOKEN")
+    }
+}
+```
+
+## عیب‌یابی
+
+- **SDK راه‌اندازی نشده است**: اطمینان حاصل کنید که متد `initialize` با یک `WTInitialConfig` معتبر قبل از استفاده از سایر متدها فراخوانی شده است.
+- **عدم دریافت ADID/Referrer**: بررسی کنید که وابستگی‌های موردنیاز (`play-services-ads-identifier`، `wisetrack-referrer` و غیره) اضافه شده‌اند و `oaidEnabled` یا `referrerEnabled` در `WTInitialConfig` تنظیم شده است. مجوزهای دستگاه را بررسی کنید.
+- **لاگ‌ها قابل مشاهده نیستند**: سطح لاگ را به `DEBUG` یا `INFO` تنظیم کنید تا لاگ‌های دقیق‌تری مشاهده کنید.
+- **ردیابی شروع نمی‌شود**: بررسی کنید که آیا `startTrackerAutomatically` false است و در صورت نیاز `startTracking` را به‌صورت دستی فراخوانی کنید.
+- **خطاهای شبکه**: مطمئن شوید دستگاه به اینترنت متصل است و `WTUserEnvironment` در `WTInitialConfig` به‌درستی تنظیم شده است.
+
+برای دریافت پشتیبانی بیشتر، با تیم پشتیبانی WiseTrack در آدرس support@wisetrack.io تماس بگیرید.
+
+## لایسنس
+
+SDK WiseTrack تحت لایسنس MIT منتشر شده است. برای جزئیات بیشتر، فایل LICENSE را مشاهده کنید.

@@ -1,4 +1,3 @@
-=======
 # WiseTrack SDK for Android
 
 The WiseTrack SDK is a powerful analytics tool for tracking user interactions, events, and application metrics in Android applications. It provides a simple interface to initialize tracking, log events, manage SDK settings, and retrieve analytics data such as Advertising ID (ADID) and referrer information.
@@ -54,8 +53,8 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
   - If your app doesn't target the Google Play Store, add the following permission to access the device's network state:
 
     ```xml
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     ```
 
 
@@ -299,7 +298,6 @@ The `WiseTrack` class provides several public methods for interacting with the S
 ## Example
 
 Below is a complete example demonstrating how to use the WiseTrack SDK in an Android application.
-- check full example application [here](https://github.com/wisetrack-io/android-sdk/tree/main/app)
 
 ```kotlin
 import android.app.Application

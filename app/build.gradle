@@ -63,6 +63,7 @@ dependencies {
     implementation 'io.wisetrack.sdk:oaid:2.0.0'
 //    implementation files('libs/oaid_sdk_2.0.0.aar')
     implementation 'io.wisetrack.sdk:referrer:2.0.0'
+    implementation 'io.wisetrack.sdk:webbridge:2.0.0'
 
     implementation libs.play.services.ads.identifier
     implementation libs.play.services.appset

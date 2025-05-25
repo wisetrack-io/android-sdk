@@ -3,7 +3,6 @@
 The WiseTrack SDK is a powerful analytics tool for tracking user interactions, events, and application metrics in Android applications. It provides a simple interface to initialize tracking, log events, manage SDK settings, and retrieve analytics data such as Advertising ID (ADID) and referrer information.
 
 ## Table of Contents
-
 - [Features](#features)
 - [Permissions](#permissions)
 - [Requirements](#requirements)
@@ -22,8 +21,8 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 - [Troubleshooting](#troubleshooting)
 - [License](#license)
 
-## Features
 
+## Features
 - Track user interactions and custom events (e.g., user actions, revenue events).
 - Support for multiple app stores (e.g., Google Play, CafeBazaar, Myket).
 - Configurable environments (Sandbox, Production) and SDK settings.
@@ -34,10 +33,11 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 - Robust logging with customizable log levels.
 - Automatic tracking with configurable delays.
 
-## Requirements
 
+## Requirements
 - **Android API Level**: 21 (Lollipop) or higher
 - **Kotlin**: 1.9.0 or higher
+- **Gradle**: Android Gradle Plugin >= 7.1.0 and Gradle 7.3 for full compatibility with Java 17.
 - **Dependencies**: See the [Dependencies for Features](#dependencies-for-features) section for required and optional dependencies.
 
 
@@ -47,8 +47,8 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
   - Add the following permissions to get access to online features:
 
     ```xml
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
   - If your app doesn't target the Google Play Store, add the following permission to access the device's network state:
 
@@ -59,7 +59,6 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 
 
 ## Installation
-
 1. **Add the WiseTrack SDK to your project**:
 
    - Add the dependency to your `app/build.gradle`:
@@ -74,8 +73,12 @@ The WiseTrack SDK is a powerful analytics tool for tracking user interactions, e
 
 
 ## Dependencies for Features
-
 The WiseTrack SDK automatically utilizes certain features if their corresponding dependencies are included in your project. Below is a list of features and the required dependencies:
+
+- **WebView Bridge**: Enables support for `WebView` if you use in your application. Check more info at [Webbridge Docs](https://github.com/wisetrack-io/android-plugin-webbridge)
+  ```gradle
+  implementation 'io.wisetrack:sdk:webbridge:2.0.0' // Replace with the latest version
+  ```
 
 - **Open Advertising ID (OAID)**: Enables support for `oaidEnabled` in `WTInitialConfig` to use OAID as an alternative to ADID for Chinese phones that has not GooglePlay Service.
   ```gradle
@@ -97,14 +100,37 @@ The WiseTrack SDK automatically utilizes certain features if their corresponding
   ```
 
 - **Huawei Ads Identifier**: Enables ADID retrieval on Huawei devices.
+  add repository:
+  ```gradle
+  maven { url 'https://developer.huawei.com/repo/' }
+  ```
+  and this dependency:
   ```gradle
   implementation 'com.huawei.hms:ads-identifier:3.4.62.300'
   ```
 
 - **Firebase Installation ID (FID)**: Enables firebase installation id for finding unique id for user device.
-  ```gradle
-  implementation 'com.google.firebase:firebase-installations:17.2.0'
-  ```
+  1. Required Dependency
+      ```gradle
+      implementation 'com.google.firebase:firebase-installations:17.2.0'
+      ```
+  2. To use Firebase services like Installations, you must register your app with Firebase and complete the setup:
+  - Register your Android app on the Firebase Console:
+  - Add your package name (e.g., com.example.app)
+  - Download the google-services.json file
+  - Add the google-services.json file in the android/app/ directory of your project
+  - Update the root-level build.gradle (android/build.gradle):
+    ```gradle
+    buildscript {
+      dependencies {
+        classpath 'com.google.gms:google-services:4.4.1' // Or latest version
+      }
+    }
+    ```
+  - Apply the Google Services plugin in your app-level build.gradle (android/app/build.gradle):
+    ```gradle
+    apply plugin: 'com.google.gms.google-services'
+    ```
 
 - **AppSet ID**: Provides additional device identification for analytics.
   ```gradle
@@ -113,25 +139,24 @@ The WiseTrack SDK automatically utilizes certain features if their corresponding
 
 **Note**: Ensure you add only the dependencies for the features you need. For example, if you don't use Huawei devices, you can skip `huawei-hms-ads-identifier`. Check the [Setup](#setup) section for configuring these features in `WTInitialConfig`.
 
-## Setup
 
+## Setup
 Before using the WiseTrack SDK, you need to initialize it with a configuration object (`WTInitialConfig`). This typically happens in your `Application` class or main `Activity`.
 
 ### Creating WTInitialConfig
-
 The `WTInitialConfig` object defines the SDK's behavior, including the app token, store name, environment, and tracking settings.
 
 ```kotlin
-import io.wisetrack.wisetrack_core.core.WTInitialConfig
-import io.wisetrack.wisetrack_core.core.WTStoreName
-import io.wisetrack.wisetrack_core.core.WTUserEnvironment
-import io.wisetrack.wisetrack_core.utils.WTLogLevel
+import io.wisetrack.sdk.core.core.WTInitialConfig
+import io.wisetrack.sdk.core.core.WTStoreName
+import io.wisetrack.sdk.core.core.WTUserEnvironment
+import io.wisetrack.sdk.core.models.WTLogLevel
 
 val config = WTInitialConfig(
     appToken = "YOUR_APP_TOKEN", // Provided by WiseTrack
     storeName = WTStoreName.PlayStore, // Or CafeBazaar, Myket, etc.
     environment = WTUserEnvironment.PRODUCTION, // Or SANDBOX for testing
-    trackingWaitingTime = 5, // Delay in seconds before tracking starts
+    trackingWaitingTime = 1, // Delay in seconds before tracking starts
     startTrackerAutomatically = true, // Automatically start tracking
     oaidEnabled = true, // Enable Open Advertising ID (requires wisetrack-oaid)
     logLevel = WTLogLevel.DEBUG, // Set logging level (DEBUG, INFO, etc.)
@@ -140,11 +165,10 @@ val config = WTInitialConfig(
 ```
 
 ### Initializing the SDK
-
 Initialize the SDK in your `Application` class or `onCreate` of your main `Activity`:
 
 ```kotlin
-import io.wisetrack.wisetrack_core.WiseTrack
+import io.wisetrack.sdk.core.WiseTrack
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -165,11 +189,9 @@ Register your `Application` class in `AndroidManifest.xml`:
 ```
 
 ## Usage
-
 The `WiseTrack` class provides several public methods for interacting with the SDK. Below is a detailed guide to each method.
 
 ### Initialization
-
 - `initialize(initialConfig: WTInitialConfig)`: Initializes the SDK with the provided configuration.
 
   ```kotlin
@@ -180,7 +202,6 @@ The `WiseTrack` class provides several public methods for interacting with the S
   - Ensure `initialConfig` includes a valid `appToken`.
 
 ### Starting and Stopping Tracking
-
 - `startTracking()`: Starts tracking user activity and events.
 
   ```kotlin
@@ -199,13 +220,12 @@ The `WiseTrack` class provides several public methods for interacting with the S
   - Use this to pause tracking, e.g., when the user opts out of analytics.
 
 ### Logging Events
-
 - `logEvent(event: WTEvent)`: Logs a custom event, such as user actions or revenue transactions.
 
   ```kotlin
-  import io.wisetrack.wisetrack_core.core.WTEvent
-  import io.wisetrack.wisetrack_core.core.EventParam
-  import io.wisetrack.wisetrack_core.core.RevenueCurrency
+  import io.wisetrack.sdk.core.core.WTEvent
+  import io.wisetrack.sdk.core.core.EventParam
+  import io.wisetrack.sdk.core.core.RevenueCurrency
 
   // Default event
   val defaultEvent = WTEvent.defaultEvent(
@@ -228,7 +248,6 @@ The `WiseTrack` class provides several public methods for interacting with the S
   - Use `WTEvent.revenueEvent` for monetary transactions.
 
 ### Managing SDK Settings
-
 - `setEnabled(enabled: Boolean)`: Enables or disables the SDK.
 
   ```kotlin
@@ -255,8 +274,8 @@ The `WiseTrack` class provides several public methods for interacting with the S
 
   - Use with caution, as this deletes all analytics data.
 
-### Retrieving Analytics Data
 
+### Retrieving Analytics Data
 - `getADID(): String?`: Retrieves the Advertising ID (ADID), if available.
 
   ```kotlin
@@ -275,8 +294,8 @@ The `WiseTrack` class provides several public methods for interacting with the S
 
   - Returns `null` if referrer tracking is disabled or unavailable (requires `wisetrack-referrer`, `android-installreferrer`, or `cafebazaar-referrersdk`).
 
-### Setting FCM Token
 
+### Setting FCM Token
 - `setFCMToken(token: String)`: Sets the Firebase Cloud Messaging (FCM) token for push notifications.
 
   ```kotlin
@@ -285,8 +304,8 @@ The `WiseTrack` class provides several public methods for interacting with the S
 
   - Call this when the FCM token is received or refreshed.
 
-### Cleaning Up
 
+### Cleaning Up
 - `destroy()`: Cleans up resources and stops tracking.
 
   ```kotlin
@@ -295,19 +314,19 @@ The `WiseTrack` class provides several public methods for interacting with the S
 
   - Call this when the application is terminated or the SDK is no longer needed.
 
-## Example
 
+## Example
 Below is a complete example demonstrating how to use the WiseTrack SDK in an Android application.
 
 ```kotlin
 import android.app.Application
-import io.wisetrack.wisetrack_core.WiseTrack
-import io.wisetrack.wisetrack_core.core.WTInitialConfig
-import io.wisetrack.wisetrack_core.core.WTStoreName
-import io.wisetrack.wisetrack_core.core.WTUserEnvironment
-import io.wisetrack.wisetrack_core.core.WTEvent
-import io.wisetrack.wisetrack_core.core.EventParam
-import io.wisetrack.wisetrack_core.utils.WTLogLevel
+import io.wisetrack.sdk.core.WiseTrack
+import io.wisetrack.sdk.core.core.WTInitialConfig
+import io.wisetrack.sdk.core.core.WTStoreName
+import io.wisetrack.sdk.core.core.WTUserEnvironment
+import io.wisetrack.sdk.core.core.WTEvent
+import io.wisetrack.sdk.core.core.EventParam
+import io.wisetrack.sdk.core.models.WTLogLevel
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -341,7 +360,6 @@ class MyApplication : Application() {
 ```
 
 ## Troubleshooting
-
 - **SDK Not Initialized**: Ensure `initialize` is called with a valid `WTInitialConfig` before using other methods.
 - **No ADID/Referrer**: Verify that the required dependencies (`play-services-ads-identifier`, `wisetrack-referrer`, etc.) are included and that `oaidEnabled` or `referrerEnabled` is set in `WTInitialConfig`. Check device permissions.
 - **Logs Not Visible**: Set `logLevel` to `DEBUG` or `INFO` to see detailed logs.
@@ -350,6 +368,6 @@ class MyApplication : Application() {
 
 For further assistance, contact the WiseTrack support team at support@wisetrack.io.
 
-## License
 
-The WiseTrack SDK is licensed under the MIT License. See the LICENSE file for details.
+## License
+The WiseTrack Flutter Plugin is licensed under the WiseTrack SDK License Agreement. See the [LICENSE](LICENSE) file for details.

@@ -76,6 +76,11 @@ SDK WiseTrack یک ابزار تحلیل قدرتمند برای ردیابی ت
 
 SDK WiseTrack به‌طور خودکار از ویژگی‌های خاصی استفاده می‌کند، اگر وابستگی‌های مربوطه در پروژه شما موجود باشند. در ادامه فهرستی از ویژگی‌ها و وابستگی‌های موردنیاز آورده شده است:
 
+- **پل ارتباطی وب ویو**: در صورت استفاده از `WebView` در اپلیکیشن شما این قابلیت پشتیبانی میشود
+  ```gradle
+  implementation 'io.wisetrack:sdk:webbridge:2.0.0' // با آخرین نسخه جایگزین کنید
+  ```
+
 - **شناسه تبلیغاتی باز (OAID)**: فعال‌سازی `oaidEnabled` در `WTInitialConfig` برای استفاده از OAID به‌عنوان جایگزین ADID در گوشی‌های چینی بدون سرویس گوگل پلی.
   ```gradle
   implementation 'io.wisetrack:sdk:oaid:2.0.0' // با آخرین نسخه جایگزین کنید
@@ -121,10 +126,10 @@ SDK WiseTrack به‌طور خودکار از ویژگی‌های خاصی اس�
 شیء `WTInitialConfig` رفتار SDK را تعریف می‌کند، از جمله توکن اپلیکیشن، نام فروشگاه، محیط و تنظیمات ردیابی.
 
 ```kotlin
-import io.wisetrack.wisetrack_core.core.WTInitialConfig
-import io.wisetrack.wisetrack_core.core.WTStoreName
-import io.wisetrack.wisetrack_core.core.WTUserEnvironment
-import io.wisetrack.wisetrack_core.utils.WTLogLevel
+import io.wisetrack.sdk.core.core.WTInitialConfig
+import io.wisetrack.sdk.core.core.WTStoreName
+import io.wisetrack.sdk.core.core.WTUserEnvironment
+import io.wisetrack.sdk.core.models.WTLogLevel
 
 val config = WTInitialConfig(
     appToken = "YOUR_APP_TOKEN", // ارائه‌شده توسط WiseTrack
@@ -143,7 +148,7 @@ val config = WTInitialConfig(
 SDK را در کلاس `Application` یا در متد `onCreate` از `Activity` اصلی راه‌اندازی کنید:
 
 ```kotlin
-import io.wisetrack.wisetrack_core.WiseTrack
+import io.wisetrack.sdk.core.WiseTrack
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -202,9 +207,9 @@ class MyApplication : Application() {
 - `logEvent(event: WTEvent)`: یک رویداد سفارشی مانند اقدامات کاربر یا تراکنش‌های درآمدی را ثبت می‌کند.
 
   ```kotlin
-  import io.wisetrack.wisetrack_core.core.WTEvent
-  import io.wisetrack.wisetrack_core.core.EventParam
-  import io.wisetrack.wisetrack_core.core.RevenueCurrency
+  import io.wisetrack.sdk.core.core.WTEvent
+  import io.wisetrack.sdk.core.core.EventParam
+  import io.wisetrack.sdk.core.core.RevenueCurrency
 
   // رویداد پیش‌فرض
   val defaultEvent = WTEvent.defaultEvent(
@@ -300,13 +305,13 @@ class MyApplication : Application() {
 
 ```kotlin
 import android.app.Application
-import io.wisetrack.wisetrack_core.WiseTrack
-import io.wisetrack.wisetrack_core.core.WTInitialConfig
-import io.wisetrack.wisetrack_core.core.WTStoreName
-import io.wisetrack.wisetrack_core.core.WTUserEnvironment
-import io.wisetrack.wisetrack_core.core.WTEvent
-import io.wisetrack.wisetrack_core.core.EventParam
-import io.wisetrack.wisetrack_core.utils.WTLogLevel
+import io.wisetrack.sdk.core.WiseTrack
+import io.wisetrack.sdk.core.core.WTInitialConfig
+import io.wisetrack.sdk.core.core.WTStoreName
+import io.wisetrack.sdk.core.core.WTUserEnvironment
+import io.wisetrack.sdk.core.core.WTEvent
+import io.wisetrack.sdk.core.core.EventParam
+import io.wisetrack.sdk.core.models.WTLogLevel
 
 class MyApplication : Application() {
     override fun onCreate() {
